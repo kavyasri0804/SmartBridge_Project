@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Volume Prediction</title>
+    <meta charset="UTF-8">
+    <title>Traffic Volume Estimation</title>
+    <style>
+        button:hover {
+            background-color: #30e610;
+        }
+         h1 {
+            color: #3609d7;
+        }
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #121212;
+        }
+    </style>
+</head>
+<body background="https://th.bing.com/th/id/OIP.WwXz9p7Z3pj5k8IQYFloGwHaE6?w=234&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"></body>
+    <h1>Traffic Volume Predictor</h1>
+    <form method="post" action="{{ url_for('predict') }}">
+        <label>Holiday (0=No, 1=Yes):</label><br>
+        <input type="number" name="holiday" min="0" max="1" required><br><br>
+        <label>Temperature:</label><br>
+        <input type="number" name="temp" step="any" required><br><br>
+        <label>Rain:</label><br>
+        <input type="number" name="rain" step="any" required><br><br>
+        <label>Snow:</label><br>
+        <input type="number" name="snow" step="any" required><br><br>
+        <label>Weather Code:</label><br>
+        <input type="number" name="weather" min="1" max="11" required><br><br>
+        <label>Year:</label><br>
+        <input type="number" name="year" min="2000" max="2100" required><br><br>
+        <label>Month:</label><br>
+        <input type="number" name="month" min="1" max="12" required><br><br>
+        <label>Day:</label><br>
+        <input type="number" name="day" min="1" max="31" required><br><br>
+        <button type="submit" class="button">Predict</button>
+    </form>
+    <h3 style="color:#4ad709">{{ prediction_text }}</h3>
+</body>
+</html>
